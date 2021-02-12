@@ -12,11 +12,11 @@ const port = 3000;
 
 // TODO: Fill with strings of your favorite quotes :)
 const quotes = [
-  'one',
-  'two',
-  'three',
-  'four',
-  'five'
+  'yoooo',
+  'this',
+  'is',
+  'a simple',
+  'test'
 ];
 
 //Utility Function to return a random integer
@@ -37,13 +37,17 @@ const handleRequest = function(req, res) {
   }
 
   // TODO: GET ONE
-  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "FILL ME IN") {
-    //YOUR CODE HERE
+  if ((req.url == '/quote/' || req.url == '/quote') && req.method == 'GET') {
+    let random = getRandomInt(0, (quotes.length-1));
+    res.writeHead(200, {...headers, 'Content-Type': 'text/plain' });
+    res.end(quotes[random])
 
   }
   // TODO: POST/CREATE
-  else if ((req.url == 'FILL ME IN' || req.url == 'FILL ME IN') && req.method == "FILL ME IN") {
-    //YOUR CODE HERE
+  else if ((req.url == '/quote/' || req.url == '/quote' ) && req.method == "POST" || req.method === "OPTIONS") {
+
+    res.writeHead(200, {...headers});
+    res.end()
   }
 
 //CATCH ALL ROUTE
